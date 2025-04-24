@@ -83,7 +83,7 @@ IAM roles are configured to:
 - Allow Lambda functions to access only required resources (S3, Kinesis, ECR).
 - Trigger Lambda only via authorized EventBridge rules.
 
-🧊 Cost Control
+-> Cost Control
 
 - S3 Lifecycle Policies archive and delete old transaction data.
 - Serverless and stream-based design ensures pay-per-use billing.
