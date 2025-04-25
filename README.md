@@ -59,27 +59,42 @@ This project implements a real-time credit card fraud detection system using a c
   - Eventually, these files are deleted to reduce storage costs.
 
 -> Technologies Used
-Service	Purpose
-Docker + ECR	Containerized Lambda deployment
-AWS Lambda	Serverless compute for preprocessing + classification
-Amazon S3	Storage for transaction files and models
-EventBridge + CloudTrail	Event routing upon new S3 uploads
-Amazon Kinesis	Real-time JSON stream processing
-Amazon DynamoDB	NoSQL database to store transaction predictions
-Amazon CloudWatch	Monitoring and logging
-Amazon SNS	Alerting system (Email) for fraud detection
-SQS DLQ	Handling unprocessed or failed events
+
+  * Service	Purpose
+  
+    * Docker + ECR	Containerized Lambda deployment
+    
+    * AWS Lambda	Serverless compute for preprocessing + classification
+    
+    * Amazon S3	Storage for transaction files and models
+    
+    * EventBridge + CloudTrail	Event routing upon new S3 uploads
+    
+    * Amazon Kinesis	Real-time JSON stream processing
+    
+    * Amazon DynamoDB	NoSQL database to store transaction predictions
+    
+    * Amazon CloudWatch	Monitoring and logging
+    
+    * Amazon SNS	Alerting system (Email) for fraud detection
+    
+    * SQS DLQ	Handling unprocessed or failed events
+
 -> Alerts
 
-Admins receive email notifications immediately after a fraudulent transaction is detected via SNS.
+  Admins receive email notifications immediately after a fraudulent transaction is detected via SNS.
 
 -> Security
 
-IAM roles are configured to:
-- Allow Lambda functions to access only required resources (S3, Kinesis, ECR).
-- Trigger Lambda only via authorized EventBridge rules.
+  IAM roles are configured to:
+  
+  - Allow Lambda functions to access only required resources (S3, Kinesis, ECR).
+    
+  - Trigger Lambda only via authorized EventBridge rules.
+  
 
 -> Cost Control
 
 - S3 Lifecycle Policies archive and delete old transaction data.
+
 - Serverless and stream-based design ensures pay-per-use billing.
