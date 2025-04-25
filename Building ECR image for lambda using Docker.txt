@@ -1,0 +1,33 @@
+Build and Push Docker Image to AWS ECR for Lambda Deployment
+
+1. Build the Docker image using the Dockerfile (make sure you're in the same directory as the Dockerfile):
+docker build -t sklearn-lambda .
+
+2. Create a repository in Amazon ECR:
+aws ecr create-repository --repository-name sklearn-lambda
+
+3. Authenticate Docker to your AWS ECR:
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.us-east-1.amazonaws.com
+
+4. Tag the Docker image with the ECR repository URI:
+docker tag sklearn-lambda:latest <account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda
+
+5. Push the Docker image to ECR:
+docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda
+
+6. Create an AWS Lambda function using the Docker image:
+aws lambda create-function --function-name preprocess-deploy-lambda --package-type Image --code ImageUri=<account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda:latest --role arn:aws:iam::<account-id>:role/service-role/data_preprocessor_predictor_function-role-2p5qn29z
+
+7. To update the Docker image and deploy changes:
+
+Rebuild the image:
+docker build -t sklearn-lambda .
+
+Retag it:
+docker tag sklearn-lambda:latest <account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda:latest
+
+Push it again:
+docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda:latest
+
+Update the AWS Lambda function:
+aws lambda update-function-code --function-name real-time-credit-card-transaction-processing-lambda --image-uri <account-id>.dkr.ecr.us-east-1.amazonaws.com/sklearn-lambda:latest
