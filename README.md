@@ -4,7 +4,8 @@
 
 This project implements a real-time credit card fraud detection system using a combination of Docker, AWS Lambda, S3, EventBridge, Kinesis, ECR, CloudWatch, DynamoDB, and SNS. It is built to automatically detect fraudulent credit card transactions with low latency and high scalability.
 
-Architecture Diagram: ![Fraud Detection Architecture](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/raw/main/fraud-detection-system-aws-architecture.jpg)
+Architecture Diagram: 
+![Fraud Detection Architecture](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/raw/main/fraud-detection-system-aws-architecture.jpg)
 
 1. Docker & ECR: Lambda Container Deployment
 
