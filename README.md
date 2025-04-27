@@ -142,3 +142,9 @@ Architecture Diagram:
 - S3 Lifecycle Policies archive and delete old transaction data.
 
 - Serverless and stream-based design ensures pay-per-use billing.
+  
+---
+
+### 🔖 Tags
+
+#MachineLearning #AWS #CreditCardFraudDetection #Serverless #Docker #DataScience #GitHubProjects
