@@ -8,28 +8,34 @@ Architecture Diagram:
 ![Fraud Detection Architecture](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/raw/main/fraud-detection-system-aws-architecture.jpg)
 
 1. Docker & ECR: Lambda Container Deployment
-
+The Dockerfile to install the required libraries: [Dockerfile](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/Dockerfile).
 - A Docker image is built locally with all dependencies and a Python-based preprocessing + prediction script.
 - The image is pushed to AWS Elastic Container Registry (ECR).
-- A Lambda function is created from this container to handle preprocessing and prediction.
-
+  ![ECR image](assets/Screenshots/amazon-ecr.jpg)
+- A Lambda function is created from this container to handle preprocessing and prediction called
+  [lambda-function](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/lambda_function.py)
 2. User Transaction Interface (Desktop App)
 
 - End users simulate or initiate transactions via a desktop application.
 - These transactions are stored locally in CSV format.
+- ![csv-file](assets/Screenshots/Transactions-csvfile.png)
 - The CSV files are then uploaded to an S3 bucket for processing.
+  ![csv-chunks](assets/Screenshots/s3_csv_chunks.jpg)
 
 3. Event-Driven Processing with AWS Services
 
 - AWS CloudTrail is used to monitor S3 events.
+- ![cloudtrial](assets/Screenshots/cloudtrial-pic.png)
 - When a new file is uploaded to S3, an EventBridge rule is triggered.
 - EventBridge routes the event to the Lambda function.
 - Dead Letter Queue (SQS) is configured to catch failed event processing.
+- ![evantbridge](assets/Screenshots/event_bridge1.png)
 
 4. Lambda Trigger & File Check
 
 - The triggered Lambda:
   - Validates if the uploaded file is a .csv.
+  - 
   - Converts the CSV data into JSON format.
   - Sends this JSON data to Amazon Kinesis for stream processing.
 
