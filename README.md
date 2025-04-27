@@ -41,6 +41,7 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
   - ![check-csv](assets/Screenshots/check_csv_lambda.jpg)
   - Lambda Code:
   - ![lambda-code](assets/Screenshots/check_csv_lambda2.jpg)
+  - Full Lambda code for sending the data to kinesis in the form of JSON: [lambda-code](lambda-to-send-data-to-kinesis.py)
   - Execution role:
   - ![lambda-execution-role](assets/Screenshots/check_csv_lambda3.jpg)
   - Execution role permissions:
