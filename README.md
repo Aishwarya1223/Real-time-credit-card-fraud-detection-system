@@ -117,7 +117,8 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
   - Admins receive email notifications immediately after a fraudulent transaction is detected via SNS.
   - ![sns](assets/Screenshots/sns-to-send-email-notification1.jpg)
   - ![sns-access-policy](assets/Screenshots/sns-to-send-email-notification-access-policy2.jpg)
-
+  - Email notification to the specified email address
+  - ![email-notification](assets/Screenshots/email-notification-of-fraud-alert.jpg)
 -> Security
 
   IAM roles are configured to:
