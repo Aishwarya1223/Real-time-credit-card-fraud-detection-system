@@ -11,13 +11,17 @@ Architecture Diagram:
 * The data has been preprocessed, and various machine learning models were trained on a Google Colab notebook, with the voting classifier being the best-performing model. All the files, including the model and preprocessing functions, have been stored as pickle files in an S3 bucket.
   - See the full code here: [ml-training-code](2025_Credit_card_fraud_detection_system.ipynb)
 1. Docker & ECR: Lambda Container Deployment
-The Dockerfile to install the required libraries: [Dockerfile](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/Dockerfile).
-- A Docker image is built locally with all dependencies and a Python-based preprocessing + prediction script.
-- The image is pushed to AWS Elastic Container Registry (ECR).
-  ![ECR image](assets/Screenshots/amazon-ecr.jpg)
-- A Lambda function is created from this container to handle preprocessing and prediction
-- Lambda Code:
-  [lambda-function](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/lambda_function.py)
+   
+  The Dockerfile to install the required libraries:
+  
+  ![dockerfile-img](assets/Screenshots/Dockerfile-img.png)
+  Access the full Docker file: [here](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/Dockerfile)
+  - A Docker image is built locally with all dependencies and a Python-based preprocessing + prediction script.
+  - The image is pushed to AWS Elastic Container Registry (ECR).
+    ![ECR image](assets/Screenshots/amazon-ecr.jpg)
+  - A Lambda function is created from this container to handle preprocessing and prediction
+  - Lambda Code:
+    [lambda-function](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/lambda_function.py)
 2. User Transaction Interface (Desktop App)
 
 - End users simulate or initiate transactions via a desktop application.
