@@ -21,6 +21,8 @@ Architecture Diagram:
     ![ECR image](assets/Screenshots/amazon-ecr.jpg)
   - A Lambda function is created from this container to handle preprocessing and prediction
   - Full Lambda Code [lambda-function](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/lambda_function.py)
+  - Instructions for building and pushing the Docker image to Amazon ECR from command prompt can be accessed [here](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/Building%20ECR%20image%20for%20lambda%20using%20Docker.txt)
+    
 2. User Transaction Interface (Desktop App)
 
 - End users simulate or initiate transactions via a desktop application.
