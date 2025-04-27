@@ -8,7 +8,7 @@ To simulate real-time transaction processing, the system uses a CSV file that mi
 
 Architecture Diagram: 
 ![Fraud Detection Architecture](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/raw/main/fraud-detection-system-aws-architecture.jpg)
-1. The data has been preprocessed, and various machine learning models were trained on a Google Colab notebook, with the voting classifier being the best-performing model. All the files, including the model and preprocessing functions, have been stored as pickle files in an S3 bucket.
+* The data has been preprocessed, and various machine learning models were trained on a Google Colab notebook, with the voting classifier being the best-performing model. All the files, including the model and preprocessing functions, have been stored as pickle files in an S3 bucket.
   - See the full code here: [ml-training-code](2025_Credit_card_fraud_detection_system.ipynb)
 1. Docker & ECR: Lambda Container Deployment
 The Dockerfile to install the required libraries: [Dockerfile](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/Dockerfile).
