@@ -35,18 +35,30 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 
 - The triggered Lambda:
   - Validates if the uploaded file is a .csv.
-  - 
   - Converts the CSV data into JSON format.
   - Sends this JSON data to Amazon Kinesis for stream processing.
-
+  - ![check-csv](assets/Screenshots/check_csv_lambda.jpg)
+  - Lambda Code:
+  - ![lambda-code](assets/Screenshots/check_csv_lambda2.jpg)
+  - Execution role:
+  - ![lambda-execution-role](assets/Screenshots/check_csv_lambda3.jpg)
+  - Execution role permissions:
+  - ![lambda-permissions](assets/Screenshots/check_csv_lambda_roles4.png)
+  - Cloudwatch logs:
+  - ![cloud-watch-logs](assets/Screenshots/check_csv_lambda-cloudwatch-logs.jpg)
 5. Preprocessing & Classification with Lambda + ECR
 
 - Another Lambda function (from the ECR image) is triggered:
   - It contacts S3 to download a preprocessing Python script (.py file).
+    - preprocessing file: [preprocessing-file](preprocessing_functions.py)
   - Applies the exact same preprocessing as was used during model training.
   - Converts JSON to a Pandas DataFrame for smoother handling.
   - Loads the trained classifier model from S3.
   - Performs fraud prediction on the transaction.
+  - Lambda Function for preprocessing
+  - ![lambda-preprocessing](assets/Screenshots/lambda-to-preprocess-data-and-store-prediction-in-dynamodb.jpg)
+  - Lambda Execution roles and permissions:
+  - ![lambda-execution-roles-permissions](assets/Screenshots/lambda-to-preprocess-data-and-store-prediction-in-dynamodb-execution-roles.png)
 
 6. Logging & Monitoring
 
@@ -56,6 +68,8 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 
 - Final predictions (with transaction details) are stored in Amazon DynamoDB.
 - If a transaction is classified as fraudulent, a Simple Notification Service (SNS) sends an email alert to the admin.
+- ![dynamodb1](assets/Screenshots/dynamodb-fraud-detection-results1.jpg)
+- ![dynamodb2](assets/Screenshots/dynamodb-fraud-detection-results2.jpg)
 
 8. Failure Handling
 
@@ -66,6 +80,10 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 - Lifecycle policies are applied on S3:
   - Files older than a threshold (e.g., 180 days) are automatically moved to Glacier (archival).
   - Eventually, these files are deleted to reduce storage costs.
+  - S3 bucket
+  - ![s3-bucket](assets/Screenshots/s3_bucket.jpg)
+  - S3 bucket life cycle policy
+  - ![s3-life-cycle-policy](assets/Screenshots/s3_bucket_s3_lifecycle_policy1.png)
 
 -> Technologies Used
 
@@ -91,7 +109,9 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 
 -> Alerts
 
-  Admins receive email notifications immediately after a fraudulent transaction is detected via SNS.
+  - Admins receive email notifications immediately after a fraudulent transaction is detected via SNS.
+  - ![sns](assets/Screenshots/sns-to-send-email-notification1.jpg)
+  - ![sns-access-policy](assets/Screenshots/sns-to-send-email-notification-access-policy2.jpg)
 
 -> Security
 
