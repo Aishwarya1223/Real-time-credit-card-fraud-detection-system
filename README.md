@@ -12,7 +12,8 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 - A Docker image is built locally with all dependencies and a Python-based preprocessing + prediction script.
 - The image is pushed to AWS Elastic Container Registry (ECR).
   ![ECR image](assets/Screenshots/amazon-ecr.jpg)
-- A Lambda function is created from this container to handle preprocessing and prediction called
+- A Lambda function is created from this container to handle preprocessing and prediction
+- Lambda Code:
   [lambda-function](https://github.com/Aishwarya1223/Real-time-credit-card-fraud-detection-system/blob/main/lambda_function.py)
 2. User Transaction Interface (Desktop App)
 
