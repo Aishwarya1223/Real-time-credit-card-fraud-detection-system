@@ -32,7 +32,7 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
 - Dead Letter Queue (SQS) is configured to catch failed event processing.
 - ![evantbridge](assets/Screenshots/event_bridge1.png)
 
-4. Lambda Trigger & File Check
+4. Lambda Trigger & File Check & Kinesis
 
 - The triggered Lambda:
   - Validates if the uploaded file is a .csv.
@@ -47,6 +47,10 @@ The Dockerfile to install the required libraries: [Dockerfile](https://github.co
   - ![lambda-permissions](assets/Screenshots/check_csv_lambda_roles4.png)
   - Cloudwatch logs:
   - ![cloud-watch-logs](assets/Screenshots/check_csv_lambda-cloudwatch-logs.jpg)
+  - Kinesis:
+  - ![kinesis](assets/Screenshots/kinesis_data_streams1.jpg)
+  - ![kinesis2](assets/Screenshots/kinesis_data_streams2.jpg)
+     
 5. Preprocessing & Classification with Lambda + ECR
 
 - Another Lambda function (from the ECR image) is triggered:
