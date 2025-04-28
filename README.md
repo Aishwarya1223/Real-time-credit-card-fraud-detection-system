@@ -1,5 +1,16 @@
 # Real-Time Credit Card Fraud Detection System
 
+## Project Summary
+
+A fully serverless real-time credit card fraud detection system built on AWS, capable of:
+
+- Processing real-time transaction streams via Kinesis and EventBridge
+- Predicting fraud using pre-trained machine learning models
+- Sending instant alerts for detected frauds via SNS
+- Storing results securely in DynamoDB
+- Handling failures gracefully with SQS Dead Letter Queues
+- Fully containerized deployment with Docker + AWS ECR
+
 -> Architecture Overview
 
 This project implements a real-time credit card fraud detection system using a combination of Docker, AWS Lambda, S3, EventBridge, Kinesis, ECR, CloudWatch, DynamoDB, and SNS. It is built to automatically detect fraudulent credit card transactions with low latency and high scalability.
