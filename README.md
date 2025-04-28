@@ -127,7 +127,7 @@ Architecture Diagram:
   - ![sns](assets/Screenshots/sns-to-send-email-notification1.jpg)
   - ![sns-access-policy](assets/Screenshots/sns-to-send-email-notification-access-policy2.jpg)
   - Email notification to the specified email address
-  - ![email-notification](assets/Screenshots/email-notification-of-fraud-alert.jpg)
+  - ![email-notification](assets/Screenshots/fraud-alert-gmail.png)
 -> Security
 
   IAM roles are configured to:
